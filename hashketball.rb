@@ -1,5 +1,3 @@
-# Write your code below game_hash
-
 def game_hash
   {
     home: {
@@ -127,4 +125,111 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(player)
+  game_hash[:home][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:player_name] === player
+      return key[:points]
+    end
+  }
+  game_hash[:away][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:player_name] === player
+      return key[:points]
+    end
+  }
+end
+
+def shoe_size(player)
+  game_hash[:home][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:player_name] === player
+      return key[:shoe]
+    end
+  }
+  game_hash[:away][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:player_name] === player
+      return key[:shoe]
+    end
+  }
+end
+
+def team_colors(team)
+  game_hash[:home].map { |key|
+    #key = [:team_name, "Brooklyn Nets"][:colors, ["Black", "White"]]...
+    if key[1] === team
+      return game_hash[:home][:colors]
+    end
+  }
+  game_hash[:away].map { |key|
+    #key = [:team_name, "Brooklyn Nets"][:colors, ["Black", "White"]]...
+    if key[1] === team
+      return game_hash[:away][:colors]
+    end
+  }
+end
+
+def team_names
+  team_names = []
+  team_names.push(game_hash[:home][:team_name])
+  team_names.push(game_hash[:away][:team_name])
+  team_names
+end
+
+def player_numbers(team)
+  player_number_list = []
+  game_hash[:home].map { |key|
+    #key = [:team_name, "Brooklyn Nets"][:colors, ["Black", "White"]]...
+    if key[1] === team
+      game_hash[:home][:players].map { |key|
+        player_number_list.push(key[:number])
+      }
+    end
+  }
+  game_hash[:away].map { |key|
+    #key = [:team_name, "Brooklyn Nets"][:colors, ["Black", "White"]]...
+    if key[1] === team
+      game_hash[:away][:players].map { |key|
+        player_number_list.push(key[:number])
+      }
+    end
+  }
+  player_number_list
+end
+
+def player_stats(player)
+  player_stats_list = []
+  game_hash[:home][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:player_name] === player
+      return key
+    end
+  }
+  game_hash[:away][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:player_name] === player
+      return key
+    end
+  }
+end
+
+def big_shoe_rebounds
+  largest_shoe = 0
+  rebounds = 0
+  game_hash[:home][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:shoe] > largest_shoe
+      largest_shoe = key[:shoe]
+      rebounds = key[:rebounds]
+    end
+  }
+  game_hash[:home][:players].map { |key|
+    #key = {:player_name=>"Alan Anderson", :numbe...
+    if key[:shoe] > largest_shoe
+      largest_shoe = key[:shoe]
+      rebounds = key[:rebounds]
+    end
+  }
+  p rebounds
+end
