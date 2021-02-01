@@ -1,5 +1,7 @@
 # Write your code below game_hash
 
+# I completed this!!  It took a long time!  But the code is GONE.  Not in Git, not anywhere.  So I am submitting this blank thing.
+
 def game_hash
   {
     home: {
